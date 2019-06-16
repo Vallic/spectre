@@ -15,4 +15,4 @@ regions:
   content: Content
   footer: Footer
   highlighted: Highlighted
-  primary_menu: Primary Menu
+  navbar: Navbar menu
