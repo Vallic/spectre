@@ -5,6 +5,8 @@
  * Functions to support theming in the spectre theme.
  */
 
+use Drupal\block\Entity\Block;
+
 /**
  * Implements hook_page_attachments_alter().
  */
@@ -130,5 +132,28 @@ function spectre_preprocess_menu_local_task(&$variables) {
   if (!empty($variables['element']['#active'])) {
     $variables['attributes']['class'][] = 'active';
   }
+}
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function spectre_preprocess_block(&$variables) {
+
+  // Pass block region value to content so this can be used in
+  // spectre_theme_suggestions_menu_alter.
+  if (isset($variables['elements']['#id'])) {
+    if ($block = Block::load($variables['elements']['#id'])) {
+      $variables['content']['#attributes']['region'] = $block->getRegion();
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function spectre_theme_suggestions_menu_alter(&$suggestions, array $variables) {
+  // Provide menu template suggesstion by region block placement.
+  if (isset($variables['attributes']['region'])) {
+    $suggestions[] = 'menu__' . $variables['attributes']['region'] . '__spectre';
+  }
 }
