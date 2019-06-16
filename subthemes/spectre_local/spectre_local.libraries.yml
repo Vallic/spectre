@@ -1,0 +1,8 @@
+local:
+  css:
+    base:
+      assets/spectre/spectre.css: {}
+    exp:
+      assets/spectre/spectre-exp.css: {}
+    icon:
+      assets/spectre/spectre-icons.css: {}

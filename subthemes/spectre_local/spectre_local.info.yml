@@ -1,0 +1,20 @@
+name: Spectre local CSS subtheme
+type: theme
+description: 'Built to use Spectre CSS. A Lightweight, Responsive and Modern CSS Framework'
+package: Core
+core: 8.x
+ 
+base theme: spectre
+
+regions:
+  header: Header
+  content: Content
+  footer: Footer
+  highlighted: Highlighted
+  navbar: Navbar menu
+
+libraries-override:
+  spectre/cdn: false
+
+libraries:
+  - spectre_local/local
