@@ -45,7 +45,7 @@
 #}
 <div class="layout-container">
 
-  <header class="header bg-primary text-light" role="banner">
+  <header class="header bg-secondary" role="banner">
     <div class="navbar container grid-xl">
       <div class="navbar-section">
         {{ page.header }}
@@ -57,7 +57,7 @@
   </header>
 
   {% if page.highlighted %}
-    <div class="hero bg-dark text-gray">
+    <div class="hero bg-primary text-center text-light">
       {{ page.highlighted }}
     </div>
   {% endif %}
@@ -74,7 +74,7 @@
   </main>
 
   {% if page.footer %}
-    <footer class="footer bg-secondary text-dark" role="contentinfo">
+    <footer class="footer bg-gray" role="contentinfo">
       <div class="container grid-xl">
         {{ page.footer }}
       </div>
