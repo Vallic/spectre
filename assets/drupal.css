@@ -1,0 +1,14 @@
+/**
+ Theme specific colors.
+ */
+.spectre-branding {
+  align-items: center;
+  padding: 0.25rem 0;
+  display: inline-flex;
+}
+
+.spectre-branding .logo-link {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
