@@ -56,9 +56,11 @@
     </div>
   </header>
 
-  <div class="hero bg-dark">
-    {{ page.highlighted }}
-  </div>
+  {% if page.highlighted %}
+    <div class="hero bg-dark">
+      {{ page.highlighted }}
+    </div>
+  {% endif %}
 
   <main class="container grid-lg" role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
