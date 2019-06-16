@@ -1,0 +1,18 @@
+name: Spectre CSS
+type: theme
+description: 'Built to use Spectre CSS. A Lightweight, Responsive and Modern CSS Framework'
+package: Core
+core: 8.x
+
+libraries:
+  - spectre/cdn
+  - spectre/custom
+ 
+base theme: false
+
+regions:
+  header: Header
+  content: Content
+  footer: Footer
+  highlighted: Highlighted
+  primary_menu: Primary Menu

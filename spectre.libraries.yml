@@ -1,0 +1,21 @@
+local:
+  css:
+    base:
+      assets/spectre/spectre.css: {}
+    exp:
+      assets/spectre/spectre-exp.css: {}
+    icon:
+      assets/spectre/spectre-icons.css: {}
+cdn:
+  css:
+    base:
+      "https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.8/spectre.min.css": { minified: true }
+    exp:
+      "https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.8/spectre-exp.min.css": { minified: true }
+    icon:
+      "https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.8/spectre-icons.min.css": { minified: true }
+
+custom:
+  css:
+    base:
+      assets/drupal.css: {}
