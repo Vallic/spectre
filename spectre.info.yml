@@ -2,12 +2,12 @@ name: Spectre CSS
 type: theme
 description: 'Built to use Spectre CSS. A Lightweight, Responsive and Modern CSS Framework'
 package: Core
-core: 8.x
+core_version_requirement: ^8 || ^9
 
 libraries:
   - spectre/cdn
   - spectre/custom
- 
+
 base theme: false
 
 regions:
