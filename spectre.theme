@@ -96,6 +96,9 @@ function spectre_preprocess_input(&$variables) {
 
     case 'submit':
       $variables['attributes']['class'][] = 'btn';
+      if (isset($element['#button_type']) && $element['#button_type'] === 'primary') {
+        $variables['attributes']['class'][] = 'btn-primary';
+      }
       break;
 
     case 'select':
@@ -157,3 +160,11 @@ function spectre_theme_suggestions_menu_alter(&$suggestions, array $variables) {
     $suggestions[] = 'menu__' . $variables['attributes']['region'] . '__spectre';
   }
 }
+
+/**
+ * Implements template_preprocess_table().
+ */
+function spectre_preprocess_table(&$variables) {
+  $variables['attributes']['class'][] = 'table';
+}
+
