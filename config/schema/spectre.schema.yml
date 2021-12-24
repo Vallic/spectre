@@ -1,0 +1,28 @@
+spectre.settings:
+  type: theme_settings
+  label: 'Spectre settings'
+  mapping:
+    button:
+      size:
+        type: string
+        label: 'Button size'
+      icon:
+        type: integer
+        label: 'Icon type'
+    table:
+      hover:
+        type: integer
+        label: 'Table type'
+      striped:
+        type: integer
+        label: 'Table type'
+      scroll:
+        type: integer
+        label: 'Table type'
+    label:
+      enable:
+        type: integer
+        label: 'Enable labels'
+      style:
+        type: integer
+        label: 'Label style'

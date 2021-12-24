@@ -96,6 +96,9 @@ function spectre_preprocess_input(&$variables) {
 
     case 'submit':
       $variables['attributes']['class'][] = 'btn';
+      if (theme_get_setting('button.size') !== 'default') {
+        $variables['attributes']['class'][] = theme_get_setting('button.size');
+      }
       if (isset($element['#button_type']) && $element['#button_type'] === 'primary') {
         $variables['attributes']['class'][] = 'btn-primary';
       }
@@ -166,5 +169,34 @@ function spectre_theme_suggestions_menu_alter(&$suggestions, array $variables) {
  */
 function spectre_preprocess_table(&$variables) {
   $variables['attributes']['class'][] = 'table';
+  if (theme_get_setting('table.hover')) {
+    $variables['attributes']['class'][] = 'table-hover';
+  }
+  if (theme_get_setting('table.striped')) {
+    $variables['attributes']['class'][] = 'table-striped';
+  }
+  if (theme_get_setting('table.scroll')) {
+    $variables['attributes']['class'][] = 'table-scroll';
+  }
 }
 
+/**
+ * Implements template_preprocess_views_view_table().
+ */
+function spectre_preprocess_views_view_table(&$variables) {
+  $variables['spectre_hover'] = theme_get_setting('table.hover');
+  $variables['spectre_striped'] = theme_get_setting('table.striped');
+  $variables['spectre_scroll'] = theme_get_setting('table.scroll');
+}
+
+/**
+ * Implements hook_preprocess_label().
+ */
+function spectre_preprocess_form_element_label(&$variables) {
+  if (theme_get_setting('label.enable')) {
+    $variables['attributes']['class'][] = 'label';
+    if (theme_get_setting('label.style')) {
+      $variables['attributes']['class'][] = 'label-rounded';
+    }
+  }
+}

@@ -1,0 +1,11 @@
+button:
+  size: 'default'
+  icon: 0
+table:
+  hover: 0
+  striped: 1
+  scroll: 0
+label:
+  enable: 0
+  style: 0
+
