@@ -7,12 +7,45 @@
  * Provides theme settings for Spectre CSS theme.
  */
 
+use Drupal\Component\Serialization\Json;
 use Drupal\Core\Form\FormStateInterface;
+use GuzzleHttp\Exception\RequestException;
+
+const SPECTRE_CACHE_CID = 'spectre_cdn_versions';
+const SPECTRE_CDN_URL = 'https://api.cdnjs.com/libraries/spectre.css?fields=versions';
+const SPECTRE_LAST_KNOWN_VERSION = '0.5.9';
 
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
 function spectre_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+
+  // Spectre CSS library.
+  $form['library'] = [
+    '#type' => 'details',
+    '#title' => t('Library'),
+    '#open' => TRUE,
+    '#tree' => TRUE,
+  ];
+
+  $form['library']['source'] = [
+    '#type' => 'select',
+    '#title' => t('CDN or local library'),
+    '#default_value' => theme_get_setting('library.source'),
+    '#description' => t('Local version requires that you put all spectre files inside assets/spectre folder'),
+    '#options' => [
+      'cdn' => t('CDN'),
+      'local' => t('Local')
+    ]
+  ];
+
+  $versions = spectre_get_cdn_versions();
+  $form['library']['version'] = [
+    '#type' => 'select',
+    '#title' => t('CDN version'),
+    '#default_value' => theme_get_setting('library.version') ?? SPECTRE_LAST_KNOWN_VERSION,
+    '#options' => $versions,
+  ];
 
   // Buttons.
   $form['button'] = [
@@ -85,4 +118,44 @@ function spectre_form_system_theme_settings_alter(&$form, FormStateInterface $fo
       ],
     ],
   ];
+}
+
+/**
+ * Fetch CDN version for Spectre.
+ *
+ * @return array
+ */
+function spectre_get_cdn_versions(): array {
+  $cache = \Drupal::cache();
+
+  // Retrieve from cache if applicable.
+  if ($data = $cache->get(SPECTRE_CACHE_CID)) {
+    return $data->data;
+  }
+
+  $client = \Drupal::httpClient();
+  $versions = [];
+
+  try {
+    $response = $client->request('GET', SPECTRE_CDN_URL, []);
+    $results = Json::decode($response->getBody()->getContents());
+    $version_results = $results['versions'] ?? [];
+    foreach ($version_results as $version) {
+      $versions[$version] = $version;
+    }
+  } catch (RequestException $exception) {
+    \Drupal::logger('spectre')->error($exception->getMessage());
+  }
+
+  if (!empty($versions)) {
+    // Cache it for seven days
+    $cache->set(SPECTRE_CACHE_CID, $versions, 86400 * 7);
+  } else {
+    // Use last known version as fallback.
+    $versions = [
+      SPECTRE_LAST_KNOWN_VERSION => SPECTRE_LAST_KNOWN_VERSION
+    ];
+  }
+
+  return $versions;
 }

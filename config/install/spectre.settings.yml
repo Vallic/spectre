@@ -1,3 +1,6 @@
+library:
+  source: 'cdn'
+  version:
 button:
   size: 'default'
   icon: 0

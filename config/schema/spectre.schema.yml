@@ -2,6 +2,13 @@ spectre.settings:
   type: theme_settings
   label: 'Spectre settings'
   mapping:
+    library:
+      source:
+        type: string
+        label: 'Library source'
+      version:
+        type: string
+        label: 'Library version'
     button:
       size:
         type: string

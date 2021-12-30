@@ -1,11 +1,3 @@
-cdn:
-  css:
-    base:
-      "https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.8/spectre.min.css": { minified: true }
-      "https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.8/spectre-exp.min.css": { minified: true }
-    theme:
-      "https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.8/spectre-icons.min.css": { minified: true }
-
 custom:
   css:
     base:
