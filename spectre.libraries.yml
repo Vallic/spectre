@@ -1,4 +1,4 @@
 custom:
   css:
     base:
-      assets/drupal.css: {}
+      assets/css/drupal.css: {}

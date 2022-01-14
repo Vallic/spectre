@@ -222,16 +222,16 @@ function spectre_library_info_build() {
   } else {
     $css_library = [
       'base' => [
-        "assets/spectre/spectre.css" => [],
-        "assets/spectre/spectre-exp.css" => [],
+        "assets/spectre/dist/spectre.min.css" => [],
+        "assets/spectre/dist/spectre-exp.min.css" => [],
       ],
       'theme' => [
-        "assets/spectre/spectre.css" => [],
+        "assets/spectre/dist/spectre-icons.min.css" => [],
       ],
     ];
   }
 
-  $libraries['spectre.spectre'] = [
+  $libraries['spectre'] = [
     'css' => $css_library,
   ];
   return $libraries;
