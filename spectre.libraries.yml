@@ -1,9 +1,9 @@
 spectre:
   css:
     base:
-      assets/spectre/dist/spectre.min.css: { minified: true }
-      assets/spectre/dist/spectre-exp.min.css: { minified: true }
-      assets/spectre/dist/spectre-icons.min.css: { minified: true }
+      assets/spectre/spectre.min.css: { minified: true }
+      assets/spectre/spectre-exp.min.css: { minified: true }
+      assets/spectre/spectre-icons.min.css: { minified: true }
 
 custom:
   css:
