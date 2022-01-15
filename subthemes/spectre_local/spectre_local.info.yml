@@ -1,9 +1,9 @@
-name: Spectre local CSS subtheme
+name: Spectre CSS local subtheme
 type: theme
 description: 'Built to use Spectre CSS. A Lightweight, Responsive and Modern CSS Framework'
 package: Core
-core: 8.x
- 
+core_version_requirement: ^8 || ^9
+
 base theme: spectre
 
 regions:
@@ -14,7 +14,7 @@ regions:
   navbar: Navbar menu
 
 libraries-override:
-  spectre/cdn: false
+  spectre/spectre: false
 
 libraries:
   - spectre_local/local

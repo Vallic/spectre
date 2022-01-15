@@ -1,9 +1,9 @@
 spectre:
   css:
     base:
-      assets/spectre/spectre.min.css: { minified: true }
-      assets/spectre/spectre-exp.min.css: { minified: true }
-      assets/spectre/spectre-icons.min.css: { minified: true }
+      https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css: { minified: true, external: true }
+      https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-exp.min.css: { minified: true, external: true }
+      https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-icons.min.css: { minified: true, external: true }
 
 custom:
   css:

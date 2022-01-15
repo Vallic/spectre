@@ -1,5 +1,4 @@
 library:
-  source: 'cdn'
   version:
 button:
   size: 'default'

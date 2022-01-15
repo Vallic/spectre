@@ -205,8 +205,8 @@ function spectre_preprocess_form_element_label(&$variables) {
  * Implements hook_library_info_alter().
  */
 function spectre_library_info_alter(&$libraries, $extension) {
-  // If we use CDN alter links.
-  if ($extension === 'spectre' && isset($libraries['spectre']) && theme_get_setting('library.source') === 'cdn') {
+  // If we use CDN alter links according to version.
+  if ($extension === 'spectre' && isset($libraries['spectre'])) {
     $version = theme_get_setting('library.version');
     $libraries['spectre']['css']['base'] = [
       sprintf('https://cdnjs.cloudflare.com/ajax/libs/spectre.css/%s/spectre.min.css', $version) => ['external' => TRUE],

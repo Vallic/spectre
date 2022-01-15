@@ -28,17 +28,6 @@ function spectre_form_system_theme_settings_alter(&$form, FormStateInterface $fo
     '#tree' => TRUE,
   ];
 
-  $form['library']['source'] = [
-    '#type' => 'select',
-    '#title' => t('CDN or local library'),
-    '#default_value' => theme_get_setting('library.source'),
-    '#description' => t('Local version requires that you put all spectre files inside assets/spectre folder'),
-    '#options' => [
-      'cdn' => t('CDN'),
-      'local' => t('Local')
-    ]
-  ];
-
   $versions = spectre_get_cdn_versions();
   $form['library']['version'] = [
     '#type' => 'select',

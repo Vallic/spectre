@@ -1,9 +1,9 @@
-name: Spectre CDN subtheme
+name: Spectre CSS CDN subtheme
 type: theme
 description: 'Built to use Spectre CSS. A Lightweight, Responsive and Modern CSS Framework'
 package: Core
-core: 8.x
- 
+core_version_requirement: ^8 || ^9
+
 base theme: spectre
 
 regions:
